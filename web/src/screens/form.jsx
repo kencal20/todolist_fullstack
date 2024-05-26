@@ -16,7 +16,7 @@ export default function FormComponent() {
         setItemInput((prev) => ({ ...prev, [key]: value }))
     }
     return (
-        <div style={styles.container}>
+        <form style={styles.container}>
             <div style={styles.inputContainer}>
                 <InputComponent
                     className={'largeInput'}
@@ -57,7 +57,7 @@ export default function FormComponent() {
 
                 />
             </div>
-        </div>
+        </form>
     )
 }
 
