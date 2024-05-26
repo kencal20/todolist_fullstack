@@ -1,7 +1,18 @@
 import React from 'react'
 
-export default function InputComponent() {
+export default function InputComponent({label,placeholder,type,className,id,onChange,value}) {
   return (
-    <div>inputComponent</div>
+    <>
+    <label>{label}</label>
+    <input 
+    placeholder={placeholder}
+    type={type}
+    className={className}
+    id={id}
+    onChange={onChange}
+    value={value}
+    style={style}
+    />
+    </>
   )
 }
