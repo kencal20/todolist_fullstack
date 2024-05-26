@@ -16,6 +16,22 @@ mongoose.connect(db_name)
 db.on('error', (err) => console.error('Error Connecting to database', err))
 db.once('open', () => console.log('Successfully Connected to database'))
 
+const listSchema = mongoose.Schema({
+    name: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    date: {
+        type: String
+    },
+    time: {
+        type: String
+    }
+})
+
+const List = new mongoose.model('todoList', listSchema)
 
 
 
