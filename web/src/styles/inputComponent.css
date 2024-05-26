@@ -1,0 +1,49 @@
+.input {
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: larger;
+}
+
+.largeInput {
+  width: 40%;
+}
+
+.smallInput {
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  .input {
+    font-size: large;
+    height: 35px;
+ 
+  }
+
+  .largeInput {
+    width: 40%;
+  }
+
+  .smallInput {
+    width: 20%;
+  
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+      font-size: large;
+      height: 35px;
+    }
+    
+    .largeInput {
+        width: 100%;
+    }
+
+    .smallInput {
+        width: 50%;
+     
+    }
+}
