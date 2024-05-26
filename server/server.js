@@ -38,7 +38,14 @@ app.get('/', async (req, res) => {
     res.send({ message: 'This is the Total List', list })
 })
 
-
+app.post('/', async (req, res) => {
+    const { name, description, date, time } = req.body
+    const item = new List({
+        name, description, date, time
+    })
+    const newItem = await item.save()
+    res.json({message:'New Item has been  created ', newItem})
+})
 
 
 
