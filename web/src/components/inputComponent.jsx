@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/inputComponent.css'
-export default function InputComponent({label,placeholder,type,className,id,onChange,value,style}) {
+export default function InputComponent({label,placeholder,type,className,id,onChange,value,style,required}) {
   return (
     <>
     <label>{label}</label>
@@ -12,6 +12,7 @@ export default function InputComponent({label,placeholder,type,className,id,onCh
     onChange={onChange}
     value={value}
     style={style}
+    required={required}
     />
     </>
   )
