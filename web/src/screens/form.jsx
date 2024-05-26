@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputComponent from '../components/inputComponent'
 
 
 export default function FormComponent() {
+    const [itemInput, setItemInput] = useState({
+        name: '',
+        description: '',
+        date: '',
+        time: ''
+    })
+
+    const handleInputChange = (key, event) => {
+        const { value } = event.target
+        console.log(value);
+        setItemInput((prev) => ({ ...prev, [key]: value }))
+    }
     return (
         <div style={styles.container}>
             <div style={styles.inputContainer}>
@@ -10,7 +22,7 @@ export default function FormComponent() {
                     className={'largeInput'}
                     placeholder={'Enter title here'}
                     label={'Title'}
-                    required={true}
+                    required={true}             
                 />
             </div>
             <div style={styles.inputContainer}>
