@@ -33,7 +33,10 @@ const listSchema = mongoose.Schema({
 
 const List = new mongoose.model('todoList', listSchema)
 
-
+app.get('/', async (req, res) => {
+    const list = await List.find()
+    res.send({ message: 'This is the Total List', list })
+})
 
 
 
