@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../styles/inputComponent.css'
 export default function InputComponent({label,placeholder,type,className,id,onChange,value,style}) {
   return (
     <>
@@ -7,7 +7,7 @@ export default function InputComponent({label,placeholder,type,className,id,onCh
     <input 
     placeholder={placeholder}
     type={type}
-    className={className}
+    className={`input ${className}`}
     id={id}
     onChange={onChange}
     value={value}
