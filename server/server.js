@@ -44,9 +44,16 @@ app.post('/', async (req, res) => {
         name, description, date, time
     })
     const newItem = await item.save()
-    res.json({message:'New Item has been  created ', newItem})
+    res.json({ message: 'New Item has been  created ', newItem })
 })
 
-
+app.delete('/:id', async (req, res) => {
+    const { id } = req.params
+    const deletedItem = await List.findByIdAndDelete(id);
+    if (!deletedItem) {
+        return res.status(404).json({ message: 'Item not found' });
+    }
+    res.json({ message: 'Item has been deleted', deletedItem });
+})
 
 app.listen(port, () => console.log(`Server is listeninhg from http://localhost:${port}`))
