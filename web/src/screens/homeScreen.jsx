@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import FormComponent from './form'
 import axios from 'axios'
+import Item from '../components/item'
 
 export default function HomeScreen() {
   const [item, setItem] = useState([])
@@ -26,12 +27,13 @@ export default function HomeScreen() {
         </section>
         <br /><br />
         <section style={styles.formContainer}>
-          {item.map((item)=>(
-          <div key={item._id}>
-            <h1>{item.name}</h1>
-          </div>
-          
-          ))}
+          {item.length > 0 ? (
+            item.map((item) => (
+              <Item key={item._id} item={item} />
+            ))
+          ) : (
+            <p>No items available</p>
+          )}
         </section>
       </div>
     </div>
@@ -45,7 +47,7 @@ const styles = {
     padding: 10,
   },
 
- 
+
   formContainer: {
     width: '100%'
   }
