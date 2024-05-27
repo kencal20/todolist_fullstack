@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import InputComponent from '../components/inputComponent'
+import { Button } from 'react-bootstrap'
 
 
-export default function FormComponent() {
+
+export default function FormComponent({ onSubmit }) {
     const [itemInput, setItemInput] = useState({
         name: '',
         description: '',
@@ -10,13 +12,23 @@ export default function FormComponent() {
         time: ''
     })
 
+
+
+
     const handleInputChange = (key, event) => {
         const { value } = event.target
         console.log(value);
         setItemInput((prev) => ({ ...prev, [key]: value }))
     }
+
+    const handleSubmit =  (event) => {
+        event.preventDefault()
+        onSubmit(itemInput)
+    }
+
+
     return (
-        <form style={styles.container}>
+        <form style={styles.container} onSubmit={handleSubmit}>
             <div style={styles.inputContainer}>
                 <InputComponent
                     className={'largeInput'}
@@ -61,6 +73,7 @@ export default function FormComponent() {
 
                 />
             </div>
+            <Button type='submit'>Submit</Button>
         </form>
     )
 }
@@ -70,16 +83,18 @@ const styles = {
     container: {
         backgroundColor: 'grey',
         width: '100%',
-        borderRadius: 20
+        borderRadius: 20,
+        padding: 20,
     },
     inputContainer: {
         display: 'flex',
         flexDirection: 'column',
         fontWeight: '900',
-        padding: 20,
+        paddingBottom: 20,
+
         fontSize: 12
     },
-    label:{
-        fontSize:18
+    label: {
+        fontSize: 18
     }
 }
