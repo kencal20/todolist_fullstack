@@ -5,7 +5,7 @@ import Item from '../components/item'
 
 export default function HomeScreen() {
   const [item, setItem] = useState([])
-
+  const [message, setMessage] = useState(null)
   useEffect(() => {
     fetchData()
   }, [])
@@ -16,6 +16,7 @@ export default function HomeScreen() {
         console.log(res.data.list)
         setItem(res.data.list)
       })
+      .catch(err => setMessage({ text: 'Server cannot fetch files' }))
   }
 
   const handleDelete = async (id) => {
@@ -27,7 +28,9 @@ export default function HomeScreen() {
 
   return (
     <div style={styles.mainContainer}>
-      <h1>hello</h1>
+     {message &&(
+      <p>{message.text}</p>
+     )}
       <div style={styles.container}>
         <section style={styles.formContainer}>
           <FormComponent />
