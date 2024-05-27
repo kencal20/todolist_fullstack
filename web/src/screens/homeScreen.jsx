@@ -13,7 +13,6 @@ export default function HomeScreen() {
   const fetchData = async () => {
     await axios.get('http://localhost:5000/')
       .then((res) => {
-        console.log(res.data.list)
         setItem(res.data.list)
       })
       .catch(err => setMessage({ text: 'Server cannot fetch files' }))
@@ -23,24 +22,28 @@ export default function HomeScreen() {
     await axios.delete(`http://localhost:5000/${id}`)
       .then(() => {
         fetchData()
+          .then(setMessage({ text: 'Item Deletion was an Success' }))
       })
+      .catch(err => setMessage({ text: 'Item Deletion was an Error' }))
   }
 
-  const handleSubmit=(itemInput)=>{
-    axios.post('http://localhost:5000',itemInput)
-    .then(()=>
-      fetchData()
-    )
-}
+  const handleSubmit = (itemInput) => {
+    axios.post('http://localhost:5000', itemInput)
+      .then(() => {
+        fetchData()
+        setMessage({ text: 'new Item Created' })
+      })
+      .catch(err => setMessage({ text: 'Item Creation was an Error' }))
+  }
 
   return (
     <div style={styles.mainContainer}>
-     {message &&(
-      <p>{message.text}</p>
-     )}
+      {message && (
+        <p>{message.text}</p>
+      )}
       <div style={styles.container}>
         <section style={styles.formContainer}>
-          <FormComponent  onSubmit={handleSubmit}/>
+          <FormComponent onSubmit={handleSubmit} />
         </section>
         <br /><br />
         <section style={styles.formContainer}>
