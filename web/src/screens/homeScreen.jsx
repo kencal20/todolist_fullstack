@@ -10,16 +10,16 @@ export default function HomeScreen() {
     fetchData()
   }, [])
 
-  const fetchData = () => {
-    axios.get('http://localhost:5000/')
+  const fetchData = async () => {
+    await axios.get('http://localhost:5000/')
       .then((res) => {
         console.log(res.data.list)
         setItem(res.data.list)
       })
   }
 
-  const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/${id}`)
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:5000/${id}`)
       .then(() => {
         fetchData()
       })
