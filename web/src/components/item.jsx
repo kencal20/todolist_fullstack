@@ -18,6 +18,7 @@ const styles = {
         padding: 20,
         backgroundColor: 'green',
         borderRadius: 20,
+        marginTop:20
 
     },
     itemName: {
