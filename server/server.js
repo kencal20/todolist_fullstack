@@ -47,6 +47,10 @@ app.post('/', async (req, res) => {
     res.json({ message: 'New Item has been  created ', newItem })
 })
 
+app.put('/:id',  (req, res) => {
+
+})
+
 app.delete('/:id', async (req, res) => {
     const { id } = req.params
     const deletedItem = await List.findByIdAndDelete(id);
