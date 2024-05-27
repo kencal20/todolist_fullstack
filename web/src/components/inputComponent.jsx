@@ -1,9 +1,9 @@
 import React from 'react'
 import '../styles/inputComponent.css'
-export default function InputComponent({label,placeholder,type,className,id,onChange,value,style,required}) {
+export default function InputComponent({label,placeholder,type,className,id,onChange,value,style,required,labelStyle}) {
   return (
     <>
-    <label>{label}</label>
+    <label style={labelStyle}>{label}</label>
     <input 
     placeholder={placeholder}
     type={type}

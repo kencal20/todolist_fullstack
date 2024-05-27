@@ -22,6 +22,7 @@ export default function FormComponent() {
                     className={'largeInput'}
                     placeholder={'Enter title here'}
                     label={'Title'}
+                    labelStyle={styles.label}
                     required={true}
                     onChange={(input) => handleInputChange('name', input)}
                     value={itemInput.name}
@@ -32,6 +33,7 @@ export default function FormComponent() {
                     className={'largeInput'}
                     placeholder={'Enter Description here'}
                     label={'Description'}
+                    labelStyle={styles.label}
                     onChange={(input) => handleInputChange('description', input)}
                     value={itemInput.description}
                 />
@@ -41,6 +43,7 @@ export default function FormComponent() {
                     className={'smallInput'}
                     type={'date'}
                     label={'Schedule Date'}
+                    labelStyle={styles.label}
                     required={true}
                     onChange={(input) => handleInputChange('date', input)}
                     value={itemInput.date}
@@ -51,6 +54,7 @@ export default function FormComponent() {
                     className={'smallInput'}
                     type={'time'}
                     label={'Schedule Title'}
+                    labelStyle={styles.label}
                     required={true}
                     onChange={(input) => handleInputChange('time', input)}
                     value={itemInput.time}
@@ -73,6 +77,9 @@ const styles = {
         flexDirection: 'column',
         fontWeight: '900',
         padding: 20,
-        fontSize: 18
+        fontSize: 12
+    },
+    label:{
+        fontSize:18
     }
 }
