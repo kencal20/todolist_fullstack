@@ -18,6 +18,13 @@ export default function HomeScreen() {
       })
   }
 
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/${id}`)
+      .then(() => {
+        fetchData()
+      })
+  }
+
   return (
     <div style={styles.mainContainer}>
       <h1>hello</h1>
@@ -29,7 +36,7 @@ export default function HomeScreen() {
         <section style={styles.formContainer}>
           {item.length > 0 ? (
             item.map((item) => (
-              <Item key={item._id} item={item} />
+              <Item key={item._id} item={item} onDelete={() => handleDelete(item._id)} />
             ))
           ) : (
             <p>No items available</p>
