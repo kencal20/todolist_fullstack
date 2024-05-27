@@ -47,7 +47,11 @@ app.post('/', async (req, res) => {
     res.json({ message: 'New Item has been  created ', newItem })
 })
 
-app.put('/:id',  (req, res) => {
+app.put('/:id', async (req, res) => {
+    const { id } = req.params
+    const { name, description, date, time } = req.body
+    const updatedItem = await List.findByIdAndUpdate(id, { name, description, date, time }, { new: true })
+    res.json({ message: 'User has been updated', updatedItem })
 
 })
 
