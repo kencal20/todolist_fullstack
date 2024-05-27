@@ -1,8 +1,11 @@
 import React from 'react'
 
-export default function Item({  }) {
+export default function Item({item}) {
     return (
-        <div>
+        <div >
+            {item.name}
         </div>
     )
 }
+
+
