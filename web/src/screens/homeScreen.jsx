@@ -26,6 +26,13 @@ export default function HomeScreen() {
       })
   }
 
+  const handleSubmit=(itemInput)=>{
+    axios.post('http://localhost:5000',itemInput)
+    .then(()=>
+      fetchData()
+    )
+}
+
   return (
     <div style={styles.mainContainer}>
      {message &&(
@@ -33,7 +40,7 @@ export default function HomeScreen() {
      )}
       <div style={styles.container}>
         <section style={styles.formContainer}>
-          <FormComponent />
+          <FormComponent  onSubmit={handleSubmit}/>
         </section>
         <br /><br />
         <section style={styles.formContainer}>
