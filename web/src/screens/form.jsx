@@ -21,9 +21,12 @@ export default function FormComponent({ onSubmit }) {
         setItemInput((prev) => ({ ...prev, [key]: value }))
     }
 
-    const handleSubmit =  (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         onSubmit(itemInput)
+        setItemInput({
+            name: '', description: '', date: '', time: ''
+        })
     }
 
 
